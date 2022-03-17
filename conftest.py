@@ -20,7 +20,7 @@ import requests
 def initWebDriver():
     chrome_options = Options()
     chrome_options.add_argument("--window-size=2000,1200")
-    ser = Service("G:\\chromedriver.exe")
+    ser = Service("..chromedriver.exe")
     driver = webdriver.Chrome(service=ser, options=chrome_options)
     driver.implicitly_wait(5)
     #driver.maximize_window()
@@ -46,7 +46,7 @@ def auth_unik_convertation(initWebDriver):
         config.read("../settings.ini", "utf8")
         external_id = config['unicredit'].get('external_client_for_convertation')
         domen_lk = config['unicredit'].get('domen_lk')
-    initWebDriver.get('https://admin.gopoints.ru/supervisor')
+    initWebDriver.get('https://test.test.ru/supervisor')
     initWebDriver.find_element_by_xpath('//input[@placeholder= "domain"]').send_keys(domen_lk)
     initWebDriver.find_element_by_xpath('//input[@placeholder= "external ID"]').send_keys(external_id)
 
